@@ -20,9 +20,9 @@
       </div>
       <div class="card-line">
         <van-swipe ref="swipe" :width="330" :loop="true" :show-indicators="false" lazy-render>
-          <van-swipe-item v-for="re in recommendation" :key="re" >
+          <van-swipe-item v-for="re in recommendation" :key="re" @click.prevent="goToNovel(re.bookId)">
             <div class="item-card">
-              <div class="picture" @click.prevent="goToNovel(re.bookId)">
+              <div class="picture">
                 <van-image width="100" height="140" :src="re.cover" fit="cover" :alt="re.bookName" :radius="4"/>
               </div>
               <div class="content">
@@ -98,16 +98,17 @@ export default {
     this.reqHomeData()
   },
   methods: {
-    onChangeSwipe(index) {
-      this.curClickRecomendCardId = index
-    },
-    onClickCard() {
-      if(this.curClickRecomendCardId >= 0 && this.curClickRecomendCardId < this.recommendation.length - 1) {
-        this.$refs.swipe.next()
-      } else {
-        this.$refs.swipe.swipeTo(0)
-      }
-    },
+    // 点击card能自动滚动的效果
+    // onChangeSwipe(index) {
+    //   this.curClickRecomendCardId = index
+    // },
+    // onClickCard() {
+    //   if(this.curClickRecomendCardId >= 0 && this.curClickRecomendCardId < this.recommendation.length - 1) {
+    //     this.$refs.swipe.next()
+    //   } else {
+    //     this.$refs.swipe.swipeTo(0)
+    //   }
+    // },
     async reqHomeData() {
       const res = await axios.get(api.ad_home)
       if(res) {
