@@ -19,8 +19,8 @@
         </div>
       </div>
       <div class="card-line">
-        <van-swipe ref="swipe" :width="330" :loop="false" :show-indicators="false" lazy-render @change="onChangeSwipe">
-          <van-swipe-item v-for="re in recommendation" :key="re" @click.prevent="onClickCard">
+        <van-swipe ref="swipe" :width="330" :loop="true" :show-indicators="false" lazy-render>
+          <van-swipe-item v-for="re in recommendation" :key="re" >
             <div class="item-card">
               <div class="picture" @click.prevent="goToNovel(re.bookId)">
                 <van-image width="100" height="140" :src="re.cover" fit="cover" :alt="re.bookName" :radius="4"/>
@@ -62,9 +62,9 @@
       <van-divider dashed :hairline="false" style="margin: 0px;"/>
       <div class="name">Quiénes somos</div>
       <div class="link">
-        <a src="https://www.novemia.com/rule/AboutOfNovemia.html">Sobre nosotros | </a>
-        <a src="https://www.novemia.com/rule/TermsofUse.html">Términos de uso | </a>
-        <a src=" https://www.novemia.com/rule/PrivacyPolicy.html">Polífticas de privacidad </a>
+        <van-button url="https://www.novemia.com/rule/AboutOfNovemia.html" text="Sobre nosotros | " tag="a"></van-button>
+        <van-button url="https://www.novemia.com/rule/TermsofUse.html" tag="a">Términos de uso | </van-button>
+        <van-button url="https://www.novemia.com/rule/PrivacyPolicy.html" tag="a">Polífticas de privacidad</van-button>
       </div>
     </div>
   </div>
@@ -273,8 +273,14 @@ export default {
   color: var(--color-heading);
 }
 .about-us .link {
-  font-size: 12px;
   text-align: center;
+}
+:deep(.link .van-button) {
+  border: none;
+  padding-left: 0;
+  padding-right: 4px;
+  color: var(--vt-c-text-gray-1);
+  font-size: 12px;
 }
 .block-line {
   height: 58px;
