@@ -33,5 +33,10 @@ const router = createRouter({
     }
   ]
 })
-
+// TODO: LEFT&RIGHT slde in 进来更合适
+router.afterEach((to, from) => {
+  const toDepth = to.path.split('/').length
+  const fromDepth = from.path.split('/').length
+  to.meta.transition = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+})
 export default router
