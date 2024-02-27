@@ -10,9 +10,9 @@
 
   推荐使用[VSCode](https://code.visualstudio.com/)编译，项目使用 2个空格进行换行
 
-## Customize configuration
+## vite 配置
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+点击查看 [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## 项目安装
 
