@@ -141,32 +141,32 @@ export default {
   height: 100vh;
   background-color: var(--color-background-white);
 }
-.search /deep/ .van-nav-bar .van-icon {
+:deep(.van-icon){
   color: #C4C4C4;
 }
-.search /deep/ .van-nav-bar__text {
+:deep(.van-nav-bar__text) {
   color: rgb(242, 44, 100);
   font-size: 14px;
   font-weight: 600;
   line-height: 18px;
 }
-.search /deep/ .van-nav-bar__right {
+:deep(.van-nav-bar__right) {
   padding: 0 20px 0 10px;
 }
-.search /deep/ .van-nav-bar__title {
+:deep(.van-nav-bar__title) {
   width: calc(100% - 120px);
   max-width: 100%;
   position: absolute;
   left: 46px;
 }
-.search /deep/ .van-field__left-icon {
+:deep(.van-field__left-icon) {
   display: flex;
   align-items: center;
 }
-.search /deep/ .van-search__content {
+:deep(.van-search__content) {
   background-color: #e6e6e6;
 }
-.search /deep/ .van-field__control {
+:deep(.van-field__control) {
   font-size: 16px;
 }
 
