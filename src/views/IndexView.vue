@@ -216,7 +216,7 @@ export default {
   margin: 8px 0;
 }
 .recomendar .item-card .content .synopsis {
-  height: 56px;
+  height: 53px;
   font-weight: 400;
   font-size: 10px;
   line-height: 14px;
