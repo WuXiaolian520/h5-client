@@ -52,7 +52,6 @@ export default {
       this.bookId = this.$route.params.id
       this.reqBookData()
     }
-    // 不占用渲染性能
     await nextTick()
     this.downloadAppSet()
   },
@@ -76,7 +75,6 @@ export default {
       } else {
         chapterId = this.chapters[this.currChapter-1].nextChapterId
       }
-
       if(chapterId === undefined ) { return }
       if (this.currChapter >= 5) {
         this.finished = true
@@ -94,12 +92,12 @@ export default {
       const ua = navigator.userAgent
       this.ios = false
       this.android = false
-      console.log('====> ua:', ua)
       if (/iPhone|iPad/i.test(ua)) {
         this.ios = true
       } else if (/Android/i.test(ua)) {
         this.android = true
       } else {
+        this.ios = true
         console.error('非ios也非android')
       }
     }
