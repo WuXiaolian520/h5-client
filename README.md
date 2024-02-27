@@ -1,53 +1,47 @@
-# download-app-h5
+# H5-Client 技术栈简介
+  本项目使用的内容：
+  * vue3 + vite 创建的项目架构(未配置测试)
+  * vue-router 做的路由支持
+  * axios 1.6.7 做请求的配置和拦截的设置
+  * [vant 4.8.4 作为 UI 的](https://vant-ui.github.io/vant/#/zh-CN)
+  * postcss-px-to-viewport 用于处理移动适配，px 转化 vw 处理
 
-This template should help get you started developing with Vue 3 in Vite.
+## 编译风格
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+  推荐使用[VSCode](https://code.visualstudio.com/)编译，项目使用 2个空格进行换行
 
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## 项目安装
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+```sh
+yarn install
+```
+
+### 编译和热更新运行
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+```sh
+yarn dev
+```
+
+### 生产环境打包，
 
 ```sh
 npm run build
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
 ```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run test:e2e:dev
-```
-
-This runs the end-to-end tests against the Vite development server.
-It is much faster than the production build.
-
-But it's still recommended to test the production build with `test:e2e` before deploying (e.g. in CI environments):
-
-```sh
-npm run build
-npm run test:e2e
+yarn build
 ```
 
 ### Lint with [ESLint](https://eslint.org/)
