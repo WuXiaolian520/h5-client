@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <van-nav-bar class="my-bar" :border="false" right-text="Search" fixed @click-right="doSearchAction"  @click-left="onClickLeft">
+    <van-nav-bar class="my-bar" :border="false" right-text="Buscar" fixed @click-right="doSearchAction"  @click-left="onClickLeft">
       <template #left>
         <van-image width="18" height="16" :src="leftArrow" />
       </template>

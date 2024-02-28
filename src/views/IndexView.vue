@@ -14,9 +14,9 @@
     <div class="recomendar">
       <div class="flex-between block-line">
         <div class="name"> Recomendar </div>
-        <div class="more">
-          <van-icon name="arrow" color="#B3B3B3" :size="16"/>
-        </div>
+<!--        <div class="more">-->
+<!--          <van-icon name="arrow" color="#B3B3B3" :size="16"/>-->
+<!--        </div>-->
       </div>
       <div class="card-line">
         <van-swipe ref="swipe" :width="330" :loop="false" :show-indicators="false" lazy-render @change="onChangeSwipe">
@@ -42,10 +42,10 @@
     </div>
     <div class="hot-list">
       <div class="flex-between block-line">
-        <div class="name">Hot</div>
-        <div class="more">
-          <van-icon name="arrow" color="#B3B3B3" :size="16"/>
-        </div>
+        <div class="name">Tendencias</div>
+<!--        <div class="more">-->
+<!--          <van-icon name="arrow" color="#B3B3B3" :size="16"/>-->
+<!--        </div>-->
       </div>
       <div class="list-box">
         <van-row gutter="20">
@@ -62,9 +62,9 @@
       <van-divider dashed :hairline="false" style="margin: 0px;"/>
       <div class="name">Quiénes somos</div>
       <div class="link">
-        <a src="https://www.novemia.com/rule/AboutOfNovemia.html">Sobre nosotros | </a>
-        <a src="https://www.novemia.com/rule/TermsofUse.html">Términos de uso | </a>
-        <a src=" https://www.novemia.com/rule/PrivacyPolicy.html">Polífticas de privacidad </a>
+        <a href="https://www.novemia.com/rule/AboutOfNovemia.html">Sobre nosotros | </a>
+        <a href="https://www.novemia.com/rule/TermsofUse.html">Términos de uso | </a>
+        <a href="https://www.novemia.com/rule/PrivacyPolicy.html">Polífticas de privacidad </a>
       </div>
     </div>
   </div>
@@ -239,7 +239,7 @@ export default {
 .hot-list .list-box .img {
   border-radius: 4px;
   box-shadow: 0px 4px 6px 0px rgba(128, 128, 128, 0.25);
-  background: url(33);
+  background: url();
 }
 .hot-list .list-box .title {
   display: -webkit-box;
@@ -263,13 +263,14 @@ export default {
 }
 .about-us {
   background-color: var(--color-background-white);
-  padding: 0 20px 80px 20px;
+  padding: 0 20px 10px 20px;
 }
 .about-us .name {
-  height: 58px;
-  line-height: 58px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--color-heading);
 }
 .about-us .link {

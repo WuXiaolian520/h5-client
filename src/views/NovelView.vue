@@ -97,7 +97,7 @@ export default {
       } else if (/Android/i.test(ua)) {
         this.android = true
       } else {
-        this.ios = true
+        this.android = true
         console.error('非ios也非android')
       }
     }
