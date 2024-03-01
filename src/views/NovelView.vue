@@ -38,7 +38,7 @@
 import {decrypt, getImageUrl} from '@/utils/index.js'
 import axios from '@/api/axios';
 import api from '@/api/toApiMap';
-
+import { nextTick } from 'vue';
 export default {
   name: 'NovelView',
   data() {
@@ -55,7 +55,7 @@ export default {
     }
   },
   async mounted() {
-    await this.nextTick()
+    await nextTick()
     this.downloadAppSet()
   },
   activated() {
