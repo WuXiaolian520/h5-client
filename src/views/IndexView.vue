@@ -19,10 +19,10 @@
 <!--        </div>-->
       </div>
       <div class="card-line">
-        <van-swipe ref="swipe" :width="330" :loop="false" :show-indicators="false" lazy-render @change="onChangeSwipe">
-          <van-swipe-item v-for="re in recommendation" :key="re" @click.prevent="onClickCard">
+        <van-swipe ref="swipe" :width="330" :loop="true" :show-indicators="false" lazy-render>
+          <van-swipe-item v-for="re in recommendation" :key="re" @click.prevent="goToNovel(re.bookId)">
             <div class="item-card">
-              <div class="picture" @click.prevent="goToNovel(re.bookId)">
+              <div class="picture">
                 <van-image width="100" height="140" :src="re.cover" fit="cover" :alt="re.bookName" :radius="4"/>
               </div>
               <div class="content">
@@ -98,16 +98,17 @@ export default {
     this.reqHomeData()
   },
   methods: {
-    onChangeSwipe(index) {
-      this.curClickRecomendCardId = index
-    },
-    onClickCard() {
-      if(this.curClickRecomendCardId >= 0 && this.curClickRecomendCardId < this.recommendation.length - 1) {
-        this.$refs.swipe.next()
-      } else {
-        this.$refs.swipe.swipeTo(0)
-      }
-    },
+    // 点击card能自动滚动的效果
+    // onChangeSwipe(index) {
+    //   this.curClickRecomendCardId = index
+    // },
+    // onClickCard() {
+    //   if(this.curClickRecomendCardId >= 0 && this.curClickRecomendCardId < this.recommendation.length - 1) {
+    //     this.$refs.swipe.next()
+    //   } else {
+    //     this.$refs.swipe.swipeTo(0)
+    //   }
+    // },
     async reqHomeData() {
       const res = await axios.get(api.ad_home)
       if(res) {
@@ -216,7 +217,7 @@ export default {
   margin: 8px 0;
 }
 .recomendar .item-card .content .synopsis {
-  height: 56px;
+  height: 53px;
   font-weight: 400;
   font-size: 10px;
   line-height: 14px;
@@ -239,7 +240,7 @@ export default {
 .hot-list .list-box .img {
   border-radius: 4px;
   box-shadow: 0px 4px 6px 0px rgba(128, 128, 128, 0.25);
-  background: url();
+  background: url(33);
 }
 .hot-list .list-box .title {
   display: -webkit-box;
@@ -274,8 +275,14 @@ export default {
   color: var(--color-heading);
 }
 .about-us .link {
-  font-size: 12px;
   text-align: center;
+}
+:deep(.link .van-button) {
+  border: none;
+  padding-left: 0;
+  padding-right: 4px;
+  color: var(--vt-c-text-gray-1);
+  font-size: 12px;
 }
 .block-line {
   height: 58px;

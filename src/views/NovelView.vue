@@ -5,8 +5,14 @@
         <van-image width="18" height="16" :src="leftArrow" />
       </template>
     </van-nav-bar>
-    <div class="title">{{ book.name }}</div>
-    <div class="author">{{ book.author }}</div>
+    <div class="title">
+      <span> {{ book.name }} </span>
+      <van-skeleton class="center-skeleton" :loading="!book.name" title :row="0" title-width="90%" round/>
+    </div>
+    <div class="author">
+      <span> {{ book.author }} </span>
+      <van-skeleton class="center-skeleton" :loading="!book.author" title :row="0" row-width="20%" round/>
+    </div>
 
     <van-list
       v-model:loading="loading"
@@ -18,6 +24,7 @@
         <div class="chapter-name">{{ c.title }}</div>
         <div v-html="c.body" class="content"></div>
       </div>
+      <van-skeleton :loading="loading" title :row="16" round/>
     </van-list>
 
     <div v-if="finished">
@@ -50,6 +57,7 @@ export default {
   async mounted() {
     if (this.$route.params) {
       this.bookId = this.$route.params.id
+      this.loading = true
       this.reqBookData()
     }
     await nextTick()
@@ -64,9 +72,14 @@ export default {
         id: this.bookId
       }
       const res = await axios.get(api.book, {params})
-      this.book = Object.assign({}, res)
-      this.currChapter = 0
-      this.onLoadChapter()
+      if(res) {
+        this.book = Object.assign({}, res)
+        this.currChapter = 0
+        this.onLoadChapter()
+      } else {
+        this.finished = true
+        this.loading = false
+      }
     },
     async onLoadChapter() {
       let chapterId = undefined
@@ -77,6 +90,7 @@ export default {
       }
       if(chapterId === undefined ) { return }
       if (this.currChapter >= 5) {
+        this.loading = false
         this.finished = true
         return
       }
@@ -107,6 +121,7 @@ export default {
 </script>
 <style scoped>
 .novel {
+  min-height: 100vh;
   color: #333333;
   background-color: var(--color-background-white)
 }
@@ -147,5 +162,12 @@ export default {
   background-color: #F22C64;
   color: #fff;
   border-color: #F22C64
+}
+:deep(.center-skeleton>.van-skeleton__content) {
+  display: flex;
+  justify-content: center;
+}
+:deep(.van-nav-bar .van-icon) {
+  color: #B3B2B2;
 }
 </style>
