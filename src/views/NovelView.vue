@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { getImageUrl } from '@/utils/index.js'
+import {decrypt, getImageUrl} from '@/utils/index.js'
 import axios from '@/api/axios';
 import api from '@/api/toApiMap';
 import { nextTick } from 'vue';
@@ -84,6 +84,7 @@ export default {
         id: chapterId
       }
       const res = await axios.get(api.chapter, {params})
+      res.body = decrypt(res.body);
       this.chapters.push(res)
       this.currChapter += 1
       this.loading = false
