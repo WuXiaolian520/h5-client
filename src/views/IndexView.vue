@@ -76,6 +76,7 @@ import axios from '@/api/axios';
 import api from '@/api/toApiMap';
 
 export default {
+  name: 'IndexView',
   data() {
     return {
       banner: [

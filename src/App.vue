@@ -6,7 +6,7 @@ import { RouterView } from 'vue-router'
 <template>
   <router-view v-slot="{ Component }">
     <transition name="fade">
-      <keep-alive>
+      <keep-alive include="IndexView,SearchView,NovelView">
         <component :is="Component" />
       </keep-alive>
     </transition>

@@ -38,9 +38,9 @@
 import {decrypt, getImageUrl} from '@/utils/index.js'
 import axios from '@/api/axios';
 import api from '@/api/toApiMap';
-import { nextTick } from 'vue';
 
 export default {
+  name: 'NovelView',
   data() {
     return {
       leftArrow: getImageUrl('arrow.svg', 'icons'),
@@ -55,15 +55,29 @@ export default {
     }
   },
   async mounted() {
-    if (this.$route.params) {
-      this.bookId = this.$route.params.id
-      this.loading = true
-      this.reqBookData()
-    }
-    await nextTick()
+    await this.nextTick()
     this.downloadAppSet()
   },
+  activated() {
+    const id = this.$route.params.id
+    if(!this.bookId || id !== this.bookId) {
+      if (this.$route.params) {
+        this.bookId = id
+        this.initPage()
+        this.reqBookData()
+      }
+    }
+  },
+  deactivated() {
+  },
   methods: {
+    initPage() {
+      this.loading = true
+      this.finished = false
+      this.currChapter = 0
+      this.book = {}
+      this.chapters = []
+    },
     onClickLeft() {
       this.$router.back()
     },

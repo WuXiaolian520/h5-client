@@ -71,6 +71,7 @@ import axios from '@/api/axios';
 import api from '@/api/toApiMap';
 
 export default {
+  name: 'SearchView',
   data() {
     return {
       leftArrow: getImageUrl('arrow.svg', 'icons'),
